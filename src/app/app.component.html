@@ -1,0 +1,76 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- {{ myDate | date: "fullDate"}}<!--pipe-->
+<!-- <br/>
+{{ gradePercent | grade }}<!-- grade pipe-->
+<!-- <br/>
+{{ gradePercent | percent }}<!-- percent pipe-->
+<div style="text-align:center">
+  <h1>
+    {{title}}
+  </h1>
+</div>
+
+<p>
+    
+  <label>Assignment Title: </label><input [(ngModel)]="aName" type='string' />
+
+</p> 
+<p>
+    
+  <label>Points Scored: </label><input [(ngModel)]="pScored" type='number' />
+    
+</p>
+<p>
+    
+  <label>Points Possible: </label><input [(ngModel)]="pPossible" type='number' />
+    
+</p>
+<p>
+    
+      <button (click)="calculate()">Add Assignment</button>
+
+</p>
+
+<table *ngIf = "assignValue.length">
+  <tr>
+    <th>Points</th>
+    <th>Points Possible</th>
+    <th>Percent</th>
+    <th>Grade</th>
+  </tr>
+  <tr>
+    <td>{{overallPerformance.pScored}}</td>
+    <td>{{overallPerformance.pPossible}}</td>
+    <td>{{overallPerformance.percent | percent }}</td>
+    <td>{{overallPerformance.percent | grade }}</td>
+  </tr>
+</table>
+
+
+<table *ngIf = "assignValue.length">
+    
+        <tr>
+    
+          <th>Assignment Title</th>
+    
+          <th>Points Scored</th>
+    
+          <th>Points Possible</th>
+
+          <th>Percent</th>
+    
+        </tr>
+    
+        <tr *ngFor="let value of assignValue">
+    
+          <td>{{ value.aName }}</td>
+    
+          <td>{{ value.pScored }}</td>
+    
+          <td>{{ value.pPossible }}</td>
+
+          <td>{{ value.aPercent | percent }}</td>
+    
+        </tr>
+    
+      </table>
